@@ -1,0 +1,41 @@
+﻿<!-- Informação de alunos -->
+
+<Escola>
+	
+	<Alunos>
+		
+		<Aluno Número="1">
+			<Nome> Luís Martins </Nome>
+			<Média>18,5</Média>
+		</Aluno>
+		
+		<Aluno Número="2">
+			<Nome> Maria Antonieta </Nome>
+			<Média>15</Média>
+		</Aluno>
+		
+		<Aluno Número="3">
+			<Nome> Jaquim Manel </Nome>
+			<Média>0</Média>
+		</Aluno>
+		
+	</Alunos>
+
+	<Professores>
+		<Professor Numero="1">
+			<Nome> José Costa </Nome>
+		</Professor>
+		<Professor Numero="2">
+			<Nome> Jorge Carvalho </Nome>
+		</Professor>
+		<Professor Numero="3">
+			<Nome> Paulo jorge </Nome>
+		</Professor>
+	</Professores>
+
+	<Informações>
+		<MédiaGlobal>22,333334</MédiaGlobal>
+	</Informações>
+	<professor>Paulo Jorge</professor>
+	
+</Escola>
