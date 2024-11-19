@@ -459,7 +459,7 @@ namespace Bloco_de_Notas_PSI_1
 
             var alunosjson = JsonConvert.DeserializeObject<List<Aluno>>(jsonalunos);
             dynamic array = JsonConvert.DeserializeObject(jsonalunos);
-            foreach(var item in array)
+            foreach (var item in array)
             {
                 Console.WriteLine("{0} {1}", item.Nome, item.Media);
             }
