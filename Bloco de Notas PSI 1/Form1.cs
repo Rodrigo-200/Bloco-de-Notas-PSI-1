@@ -467,5 +467,17 @@ namespace Bloco_de_Notas_PSI_1
         }
 
 
+
+        //Dictionary<int, string> comboSource = new Dictionary<int, string>();
+
+        /*
+            foreach(var item in categories)
+            {
+                comboSource.Add(item.id, item.nome);
+            }
+        */
+
+
+
     }
 }
