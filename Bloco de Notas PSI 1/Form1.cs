@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO; // De onde vem o file e fileinfo etc (Importante saber!!)
 using System.Xml;
 using Newtonsoft.Json;
+using System.Data.SqlClient;
 
 namespace Bloco_de_Notas_PSI_1
 {
@@ -476,8 +477,24 @@ namespace Bloco_de_Notas_PSI_1
                 comboSource.Add(item.id, item.nome);
             }
         */
+        private void SQL_EXAMPLE()
+        {
+            //using System.Data.SqlClient;
+
+            SqlConnectionStringBuilder connStringbuilder = new SqlConnectionStringBuilder();
+            connStringbuilder.DataSource = "PORTATIL40\\SQLEXPRESS";
+            connStringbuilder.InitialCatalog = "bar-escola";
+            connStringbuilder.UserID = "sa";
+            connStringbuilder.Password = "SQL_";
+            SqlConnection sqlconn = new SqlConnection(connStringbuilder.ConnectionString);
 
 
+            sqlconn.Open();
 
+            sqlconn.Close();
+        }
     }
+
+
+
 }
