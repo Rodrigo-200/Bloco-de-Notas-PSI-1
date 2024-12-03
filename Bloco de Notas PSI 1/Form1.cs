@@ -44,12 +44,12 @@ namespace Bloco_de_Notas_PSI_1
             if (!Directory.Exists("veiculos")) //Se esta pasta não existir criar a pasta 
                 Directory.CreateDirectory("veiculos"); // Cria uma nova pasta (Neste caso com o nome veiculos)
 
-            //@Serve para ignorar barras nas strings assim pode se fazer so 1 barra logo --> @"veiculos\teste.txt"
+            //@Serve para ignorar barras nas strings assim pode se fazer so 1 barra logo *> @"veiculos\teste.txt"
 
             //Exemplo de um try catch
             try
             {
-                File.Create(@"veiculos\teste.txt"); // --> Este ficheiro e diretorio sao criados na pasta de onde o exe esta a ser corrido este ficheiro é adicionado dentro da pasta veiculos.
+                File.Create(@"veiculos\teste.txt"); // *> Este ficheiro e diretorio sao criados na pasta de onde o exe esta a ser corrido este ficheiro é adicionado dentro da pasta veiculos.
             }
             catch (Exception ex)
             {
@@ -164,7 +164,7 @@ namespace Bloco_de_Notas_PSI_1
             int rr = br.ReadInt32(); //O programa rebenta porque vai ler "nada (null)" metemos aqui propositalmente para ver o erro
             br.Close();
 
-            // --------------------------------- //
+            // ****************- //
 
             //StreamWriter trabalha com texto
             //Write não cria uma nova linha writelinha cria uma nova linha
@@ -327,7 +327,7 @@ namespace Bloco_de_Notas_PSI_1
             xmlOut.Close(); // fechar o objecto
 
 
-            // --------------------------------------------------------------------------------------- //
+            // *******************************************- //
 
             //Ler ficheiros XML
             string conteudo = "";
@@ -398,7 +398,7 @@ namespace Bloco_de_Notas_PSI_1
             // fechar o obj
 
 
-            // --------------------------------------------------------------------------------- //
+            // ****************************************- //
 
 
             ///Editar/Ler ficheiros XML 
@@ -453,7 +453,7 @@ namespace Bloco_de_Notas_PSI_1
 
         private void Json()
         {
-            List<Aluno> alunos = new List<Aluno>;
+            List<Aluno> alunos = new List<Aluno>();
             alunos.Add(new Aluno { Numero = 1, Nome = "Luis Martins", Media = 18.5F });
             string jsonalunos = JsonConvert.SerializeObject(alunos);
             button1.Text = jsonalunos;
@@ -477,8 +477,57 @@ namespace Bloco_de_Notas_PSI_1
                 comboSource.Add(item.id, item.nome);
             }
         */
-        private void SQL_EXAMPLE()
+        private void SQL()
         {
+            /*
+             * M17 - SQL 
+             */
+
+            /*
+             * 2 formas de ligar à base de dados
+
+
+             * Todas as tabelas em Inglês e em Maisculas ( usar _, etc...)
+             * SELECT u.* FROM authetication.USERS u # u é uma Alias (como se fosse uma alcunha) #
+             * Palavras de SQL sempre em Maisuculas ou seja inner join está errado tem de ser INNER JOIN, FROM, ORDER BY, DESC, SELECT, etc...
+
+             * LEFT JOIN vai "olhar" para a tabela da esquerda e retorna todos os valores/campos da tabela da esquerda
+             * LEFT JOIN authentication.ROLES R on u.ROLE_ID = R.ID
+             * Retorna independentemente se o role id existe ou não
+
+             * RIGHT JOIN é igual mas à direita 
+             */
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+            //Trabalho de grupo:
+            //Até dia 16 de JANEIRO
+            //Igual ao Bar-Escola com um extra:
+
+                #warning São duas aplicações diferentes uma podemos adicionar produtos etc e na outra os utilizadores podem comprar produtos
+
+                #warning Criar tabela/campo STOCK
+                #warning Criar um sistema de login
+                #warning A base de dados "controla" as duas aplicações
+                #warning Cada cliente vai o seu dinheiro
+                #warning O preço tem de ter historico exemplo hoje é 1€ amanha 3€ eu comprei a 1€ e fica a aparecer a 1€ 
+                #warning Datas de compras têm de ser guardadas
+                #warning Podem haver promoções e têm de ter um tempo onde as mesamas estão ativas
+                #warning Se o produto estiver em um periodo de desconto tem de ser descontado esse valor (Seria bonito mostrar o preço antigo com um risco)
+
+            /*Tabelas
+             * CATEGORIES - ID, NAME, IS_DELETED | DELETE_DATE -- IS_DELETED | DELETED_DATE serve para quando se for mostrar as categorias sabermos se ao mostrar a categoria no frontend se existe ou nao, mas ainda pode aparecer no historico dos utilizadores
+             * PRODUCTS - ID, NAME, PRICE, ETC..., ID_CATEGORY - Liga com a tabela Categories
+             * CLIENTS - ID, NAME, ETC..., 
+             * BUYS (Cabeçalho da compra) - ID, ID_CLIENT, TOTAL || BUY_PRODUCTS - ID_BUY, ID_PRODUCT (Liga à tabela dos produtos), PRICE (Guarda o preço ao qual o cliente comprou), Date, Discount (Allow NULLS),  ETC...
+             * 
+             */
+
+            //Confirmar se tem dinheiro para comprar
+            //Fazer SP's 
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------//
+
             //using System.Data.SqlClient;
 
             SqlConnectionStringBuilder connStringbuilder = new SqlConnectionStringBuilder();
@@ -487,7 +536,6 @@ namespace Bloco_de_Notas_PSI_1
             connStringbuilder.UserID = "sa";
             connStringbuilder.Password = "SQL_";
             SqlConnection sqlconn = new SqlConnection(connStringbuilder.ConnectionString);
-
 
             sqlconn.Open();
 
