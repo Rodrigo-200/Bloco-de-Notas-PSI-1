@@ -540,6 +540,12 @@ namespace Bloco_de_Notas_PSI_1
             sqlconn.Open();
 
             sqlconn.Close();
+
+
+            List<Aluno> a = IneteEntites.Alunos.ToList();
+
+            a.Add(new Aluno { Nome = "ddsfd" });
+            
         }
     }
 
